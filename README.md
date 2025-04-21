@@ -38,7 +38,7 @@ Make sure you have **Python 3.7+** installed. This project also requires a GPU (
 
 ### Model Weights:
 
-Download the pre-trained model (`frcnn_fpr_detector.pt`) and place it in the `models/` directory. You can find the model weight file on the releases page or request access.
+Download the pre-trained model (`frcnn_fpr_detector.pt`) and place it in the `models/` directory. You can find the model weight file on this link [Download Model Weights](https://drive.google.com/file/d/1cGZzqhQz8sM1dQ248-8qlA8dnqNNOuGt/view?usp=drive_link)
 
 ## Model Architecture
 
