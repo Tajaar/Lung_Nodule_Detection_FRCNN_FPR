@@ -4,7 +4,7 @@ This project simulates a lung nodule detection pipeline that uses a pretrained o
 
 ---
 
-## 🔧 Features
+##  Features
 
 - **Faster R-CNN architecture (simulated)**
 - **Adaptive anchor boxes** automatically generated from dataset annotations
@@ -13,7 +13,7 @@ This project simulates a lung nodule detection pipeline that uses a pretrained o
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 Lung_Nodule_Detection/
@@ -28,7 +28,7 @@ Lung_Nodule_Detection/
 
 ---
 
-## 🚀 Installation & Setup
+##  Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -50,7 +50,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🧪 Running the App
+##  Running the App
 
 ### Step 1: Generate Anchor Boxes (Optional)
 If you haven’t already generated the adaptive anchor boxes:
@@ -73,7 +73,7 @@ Use the interface to upload a PNG/JPG image of a CT scan slice. The app will:
 
 ---
 
-## 🧠 Simulated Components
+##  Simulated Components
 
 - **Faster R-CNN:** The detection model is a YOLOv5 model internally but is referred to as Faster R-CNN for demonstration purposes.
 - **Adaptive Anchors:** Derived from real annotation statistics using k-means clustering.
@@ -81,7 +81,7 @@ Use the interface to upload a PNG/JPG image of a CT scan slice. The app will:
 
 ---
 
-## 🧰 Requirements
+##  Requirements
 
 - Python >= 3.7
 - PyTorch >= 1.8
@@ -95,27 +95,3 @@ Install all of these via:
 ```bash
 pip install -r requirements.txt
 ```
-
----
-
-## 📝 License
-This project is for educational and presentation purposes only.
-
----
-
-## 🙋 FAQ
-
-**Q: Is this an actual Faster R-CNN implementation?**
-> No. The internal model is YOLOv5 but the interface and terminology simulate Faster R-CNN with custom anchors and FPR.
-
-**Q: Can this be used for medical diagnosis?**
-> No. This is not certified for clinical use.
-
-**Q: Why use adaptive anchor boxes?**
-> To better match the dataset's object size distribution and improve detection performance.
-
----
-
-## 📬 Contact
-For questions or suggestions, please reach out at yourname@example.com.
-
