@@ -94,7 +94,6 @@ data/
 results/
 output/
 logs/
-models/
 checkpoints/
 
 # Ignore large files
