@@ -1,4 +1,4 @@
-# Ultralytics YOLOv5 🚀, AGPL-3.0 license
+
 """Dataloaders and dataset utils."""
 
 import contextlib

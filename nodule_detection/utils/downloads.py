@@ -1,4 +1,4 @@
-# Ultralytics YOLOv5 🚀, AGPL-3.0 license
+
 """Download utils."""
 
 import logging
@@ -104,7 +104,7 @@ def attempt_download(file, repo="ultralytics/yolov5", release="v7.0"):
         name = Path(urllib.parse.unquote(str(file))).name  # decode '%2F' to '/' etc.
         if str(file).startswith(("http:/", "https:/")):  # download
             url = str(file).replace(":/", "://")  # Pathlib turns :// -> :/
-            file = name.split("?")[0]  # parse authentication https://url.com/file.txt?auth...
+            file = name.split("?")[0]  
             if Path(file).is_file():
                 LOGGER.info(f"Found {url} locally at {file}")  # file already exists
             else:
