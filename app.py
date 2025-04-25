@@ -81,20 +81,29 @@ def fpr_decision(confidence):
         return "Non-Nodule (FPR: Low)"
 
 def draw_bounding_boxes(img, results):
+    # Convert image to BGR format if it is in RGB (PIL Image to OpenCV)
+    if len(img.shape) == 3 and img.shape[2] == 3:
+        img = np.array(img)  # Convert PIL image to numpy array if needed
+    else:
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+
     for (x1, y1, x2, y2), conf, cls in results:
         x1, y1, x2, y2 = map(int, [x1, y1, x2, y2])
         label = fpr_decision(conf)
 
-        if "Non-Nodule" in label:
-            color = (255, 0, 0)  # Red
-        elif "Indeterminate" in label:
-            color = (255, 255, 0)  # Yellow
+        # Adjust color based on classification and confidence (BGR format)
+        if "Non-Nodule (FPR: Low)" in label:
+            color = (0, 0, 255)  # Red in BGR for Non-Nodule
+        elif "Indeterminate (FPR: Moderate)" in label:
+            color = (0, 255, 255)  # Yellow in BGR for Indeterminate
         else:
-            color = (0, 255, 0)  # Green for Nodule
+            # Green for Nodule, with more intensity for higher confidence
+            green_intensity = int(min(conf * 255, 255))  # Scale the confidence to a color intensity
+            color = (0, green_intensity, 0)  # Green in BGR (note the reversed order)
 
-        cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
-        cv2.putText(img, f'{label}', (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX,
-                    0.6, color, 2)
+        # Draw the bounding box with the chosen color
+        img = cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
+
     return img
 
 # Upload image
