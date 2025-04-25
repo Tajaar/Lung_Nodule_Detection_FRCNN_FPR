@@ -97,7 +97,6 @@ def draw_bounding_boxes(img, results):
                     0.6, color, 2)
     return img
 
-
 # Upload image
 image_file = st.file_uploader("Upload a CT scan slice (PNG, JPG)", type=["jpg", "jpeg", "png"])
 if image_file is not None:
@@ -113,6 +112,7 @@ if image_file is not None:
     # Show classification results below the image
     if results:
         st.markdown("### Classification Results:")
+        cancer_possibility = 0  # Variable to track possible cancer risk
         for i, ((x1, y1, x2, y2), conf, cls) in enumerate(results, 1):
             label = fpr_decision(conf)
             color_label = ""
@@ -122,7 +122,15 @@ if image_file is not None:
                 color_label = f"<span style='color:orange'>{label}</span>"
             else:
                 color_label = f"<span style='color:green'>{label}</span>"
+                if conf > 0.6:  # Threshold to consider a high cancer possibility
+                    cancer_possibility += 1
             st.markdown(f"**Detection {i}:** {color_label} (Confidence: {conf:.2f})", unsafe_allow_html=True)
+        
+        # Print cancer possibility report
+        if cancer_possibility > 1:
+            st.markdown("### Possible Cancer Risk Detected:")
+            st.warning("There is a possibility of cancer based on the detected nodules. Further examination is recommended.")
+        else:
+            st.success("No significant cancer risk detected based on the analysis.")
     else:
         st.info("No nodules detected in the image.")
-
