@@ -1,0 +1,4 @@
+Project Title: "Lung Nodule Detection Using FRCNN with Adaptive Anchor Box"
+Project Link: "https://github.com/Tajaar/Lung_Nodule_Detection_FRCNN_FPR"
+Domains: ["CNN","ML"]
+Description: "This project implements a Lung Nodule Detection system using a Faster R-CNN (FRCNN) model enhanced with adaptive anchor boxes and an FPR classifier for accurate nodule classification. The model is optimized to detect pulmonary nodules in CT scan images and classify them as either Nodule or Non-Nodule, with the additional feature of identifying indeterminate cases."
